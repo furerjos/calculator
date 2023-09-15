@@ -1,8 +1,8 @@
+import Service.CalculatorService;
 import org.junit.Assert;
 import org.junit.Test;
 
 public class CalculatorServiceTest {
-
 
     @Test
     public void AdditionTest1(){
@@ -11,7 +11,7 @@ public class CalculatorServiceTest {
         double b = 10;
         double expected = 15;
         double actual = service.add(a, b);
-        Assert.assertEquals(expected, actual);
+        Assert.assertEquals(expected, actual, 0.0);
     }
 
     @Test
@@ -21,7 +21,7 @@ public class CalculatorServiceTest {
         double b = 10;
         double expected = 5;
         double actual = service.subtract(b, a);
-        Assert.assertEquals(expected, actual);
+        Assert.assertEquals(expected, actual, 0.0);
     }
 
     @Test
@@ -29,9 +29,9 @@ public class CalculatorServiceTest {
         CalculatorService service = new CalculatorService();
         double a = 5;
         double b = 10;
-        double expected = 150;
+        double expected = 50;
         double actual = service.multiply(a, b);
-        Assert.assertEquals(expected, actual);
+        Assert.assertEquals(expected, actual, 0.0);
     }
 
     @Test
@@ -41,7 +41,7 @@ public class CalculatorServiceTest {
         double b = 10;
         double expected = 2;
         double actual = service.divide(b, a);
-        Assert.assertEquals(expected, actual);
+        Assert.assertEquals(expected, actual, 0.0);
     }
 
 }
