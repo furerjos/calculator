@@ -47,4 +47,10 @@ public class CalculatorServiceTest {
         Assert.assertEquals(expected, actual, 0.0);
     }
 
+    @Test
+    public void DivideByZeroTest(){
+        double a = 1;
+        double b = 0;
+        Assert.assertThrows(Exception.class, ()->service.divide(a, b));
+    }
 }
