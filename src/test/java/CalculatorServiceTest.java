@@ -1,12 +1,18 @@
 import Service.CalculatorService;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 public class CalculatorServiceTest {
+    CalculatorService service;
+
+    @Before
+    public void setUp(){
+        service = new CalculatorService();
+    }
 
     @Test
     public void AdditionTest1(){
-        CalculatorService service = new CalculatorService();
         double a = 5;
         double b = 10;
         double expected = 15;
@@ -16,7 +22,6 @@ public class CalculatorServiceTest {
 
     @Test
     public void SubtractionTest1(){
-        CalculatorService service = new CalculatorService();
         double a = 5;
         double b = 10;
         double expected = 5;
@@ -26,7 +31,6 @@ public class CalculatorServiceTest {
 
     @Test
     public void MultiplicationTest1(){
-        CalculatorService service = new CalculatorService();
         double a = 5;
         double b = 10;
         double expected = 50;
@@ -36,7 +40,6 @@ public class CalculatorServiceTest {
 
     @Test
     public void DivisionTest1(){
-        CalculatorService service = new CalculatorService();
         double a = 5;
         double b = 10;
         double expected = 2;
