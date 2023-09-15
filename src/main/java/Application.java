@@ -20,6 +20,8 @@ public class Application {
             System.out.println("5: Exit");
 
             int choice;
+            double num1;
+            double num2;
 
             try {
                 choice = scanner.nextInt();
@@ -29,36 +31,24 @@ public class Application {
                 continue;
             }
 
-            if (choice > 5 || choice < 0) {
+            if (choice > 5 || choice <= 0) {
                 System.out.println("ERROR: Please input a digit between 1 - 5.");
                 scanner.nextLine(); // Takes in invalid input
                 continue;
-            }
-
-            if (choice == 5) {
+            } else if (choice == 5) {
                 System.out.println("Exiting the calculator.");
                 break;
             }
 
-            System.out.print("Enter the first number:");
-            double num1;
-
             try {
+                System.out.print("Enter the first number:");
                 num1 = scanner.nextDouble();
-            } catch (InputMismatchException e) {
-                System.out.println("Invalid input, please enter a valid number.");
-                scanner.nextLine(); // Takes in invalid input
-                continue;
-            }
-
-            System.out.print("Enter the second number:");
-            double num2;
-
-            try {
+                System.out.print("Enter the second number:");
                 num2 = scanner.nextDouble();
-            } catch (InputMismatchException e) {
-                System.out.println("Invalid input, please enter a valid number.");
-                scanner.nextLine(); // Takes in invalid input
+            } catch(InputMismatchException e) {
+                System.out.println("Invalid Input: Input must be a number!");
+                System.out.println(e);
+                scanner.nextLine();
                 continue;
             }
 
@@ -75,16 +65,16 @@ public class Application {
                     result = calculator.multiply(num1, num2);
                     break;
                 case 4:
-                    if (num2 != 0) {
+                    try {
                         result = calculator.divide(num1, num2);
-                    } else {
+                    } catch(Exception e) {
+                        System.out.println(e);
                         System.out.println("Error: Division by zero");
-                        continue; // Go back to menu
+                        continue;
                     }
                     break;
                 default:
-                    System.out.println("Invalid choice. Please choose an input between 1 - 5.");
-                    continue; // Go back to menu
+                    continue;
             }
             System.out.println("Result: " + result);
         }

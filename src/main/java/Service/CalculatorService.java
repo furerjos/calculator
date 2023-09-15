@@ -48,7 +48,11 @@ public class CalculatorService {
      * @param b The second number.
      * @return The result of the two numbers divided.
      */
-    public double divide(double a, double b) {
+    public double divide(double a, double b) throws ArithmeticException {
+        if(b == 0) {
+            throw new ArithmeticException();
+        }
+
         return a / b;
     }
 }
